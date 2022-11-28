@@ -1,0 +1,84 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.calculator-container{
+    max-width: 400px;
+    max-height: 700px;
+    width: 90vw;
+    height: 70vh;
+    min-height: 600px;
+    border: 15px black solid;
+    border-radius: 1rem;
+    background-color: rgb(24, 23, 23);
+    display: flex;
+    flex-direction: column;
+    color: rgb(236, 223, 223);
+    font-size: 1.9rem;
+    box-sizing: border-box;
+    cursor: default;
+}
+.row{
+    flex: 1;
+    box-sizing: border-box;
+    display: flex;
+    border-radius: 1rem;
+}
+.button{
+    border: 2px solid rgb(34, 33, 33);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    flex: 1;
+    border-radius: 1rem;
+}
+.zero{
+    flex: 2;
+}
+.clear{
+    flex: 1;
+}
+.bsp{
+    flex: 2;
+}
+.screen{
+    background-color: rgba(127, 255, 212, 0.281);
+    border: 2px solid rgb(34, 33, 33);
+    border-radius: 1rem 1rem 0 0;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-size: 3.5rem;
+    overflow: clip;
+    color: rgb(209, 197, 197);
+    letter-spacing: .3rem;
+}
+.number{
+    background-color: rgb(211, 125, 26);
+}
+.operator{
+    background-color: rgb(24, 83, 138);
+}
+.operator:active{
+    background-color: rgb(5, 44, 80)
+}
+.bsp, .clear, .dot{
+    background-color: rgb(114, 66, 158);
+}
+.bsp:active, .clear:active, .dot:active{
+    background-color: rgb(75, 34, 112);
+}
+.number:active{
+    background-color: rgb(134, 74, 5);
+}
+
