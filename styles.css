@@ -9,6 +9,7 @@ body{
     margin: 0;
     padding: 0;
     height: 100vh;
+    background-color: rgb(83, 111, 148);
 }
 .calculator-container{
     max-width: 400px;
@@ -16,7 +17,7 @@ body{
     width: 90vw;
     height: 70vh;
     min-height: 600px;
-    border: 15px black solid;
+    border: 15px rgb(17, 17, 17) solid;
     border-radius: 1rem;
     background-color: rgb(24, 23, 23);
     display: flex;

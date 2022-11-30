@@ -8,6 +8,100 @@ const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operator');
 const mscButtons = document.querySelectorAll('.msc');
 
+window.addEventListener('keydown', e=>{
+  const button=document.querySelector(`.button[data-key='${e.keyCode}']`);
+  if(currentNum==='0' && operator==='/')
+    {
+      display.textContent='not cool bro';
+    }
+  else
+  {
+    if(e.key>=0 && e.key<=9)
+    { 
+      currentNum+=button.textContent;
+      display.textContent=currentNum;
+    }  
+    else if(e.key==='Backspace')
+    {
+      currentNum=currentNum.slice(0,currentNum.length-1);
+      display.textContent=currentNum;
+    }
+    else if(e.key==='.'){
+      if(!currentNum.includes('.'))
+        currentNum+='.';
+        display.textContent=currentNum;
+    }
+    
+    else if(e.key==='='){
+      switch(operator){
+        case '+':{
+          prevNum=operate(add,prevNum,+currentNum);
+          prevNum=decimals(prevNum);
+          display.textContent=prevNum;
+          break;
+        }
+        case '-':{
+          prevNum=operate(subtract,prevNum,+currentNum);
+          prevNum=decimals(prevNum);
+          display.textContent=prevNum;
+          break;
+        }
+        case '*':{
+          prevNum=operate(multiply,prevNum,+currentNum);
+          prevNum=decimals(prevNum);
+          display.textContent=prevNum;
+          break;
+        }
+        case '/':{
+          prevNum=operate(divide,prevNum,+currentNum);
+          prevNum=decimals(prevNum);
+          display.textContent=prevNum;
+          
+        }
+      }
+      currentNum='';
+      operator='+';
+    }
+    else if(e.key==='+' || e.key==='-' || e.key==='*' || e.key==='/')
+      {
+        switch(operator){
+          case '+':{
+            prevNum=operate(add,prevNum,+currentNum);
+            prevNum=decimals(prevNum);
+            display.textContent=prevNum;
+            currentNum='';
+            operator=e.key;
+            break;
+          }
+          case '-':{
+            prevNum=operate(subtract,prevNum,+currentNum);
+            prevNum=decimals(prevNum);
+            display.textContent=prevNum;
+            currentNum='';
+            operator=e.key;
+            break;
+          }
+          case '*':{
+            prevNum=operate(multiply,prevNum,+currentNum);
+            prevNum=decimals(prevNum);
+            display.textContent=prevNum;
+            currentNum='';
+            operator=e.key;
+            break;
+          }
+          case '/':{
+            prevNum=operate(divide,prevNum,+currentNum);
+            prevNum=decimals(prevNum);
+            display.textContent=prevNum;
+            currentNum='';
+            operator=e.key;
+            break;
+          }
+        }
+      }
+  }
+});
+
 numberButtons.forEach( button=> {
   button.addEventListener('click', readNumber);
 });
