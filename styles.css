@@ -81,4 +81,9 @@ body{
 .number:active{
     background-color: rgb(134, 74, 5);
 }
-
+@media screen and (max-width: 400px){
+    span{
+        font-size: 1.7rem;
+        letter-spacing: .3rem;
+    }
+}
